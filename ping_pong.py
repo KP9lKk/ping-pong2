@@ -26,8 +26,10 @@ class Player(GameSprite):
 
 window = display.set_mode((700, 500))
 display.set_caption('Пинг понг')
-#hero = Player('rocket.png',  500 - 80 - 5,700 // 2, 5,(60, 80))
-
+########################### 
+racketl = Player('racket.png',  175, 30, 5,(30, 150))
+racketr = Player('racket.png',  175, 640, 5,(30, 150))
+###########################
 clock = time.Clock()
 FPS = 60
 run = True
@@ -44,6 +46,11 @@ while run:
             run = False
     window.fill((200, 255, 255))
     if not finish:
-        pass
+        ###########################
+        racketl.reset()
+        racketr.reset()
+        racketl.update_l()
+        racketr.update_r()
+        ###########################
     display.update() 
     clock.tick(60)
